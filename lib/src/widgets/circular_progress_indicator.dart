@@ -19,7 +19,7 @@ class NCircularProgressIndicator extends StatelessWidget {
       child: CircularProgressIndicator(
         strokeWidth: 2,
         valueColor: AlwaysStoppedAnimation(
-          isDark ? Colors.white : Theme.of(context).accentColor,
+          isDark ? Colors.white : Theme.of(context).colorScheme.secondary,
         ),
       ),
     );

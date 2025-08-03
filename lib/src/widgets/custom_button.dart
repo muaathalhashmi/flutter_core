@@ -64,7 +64,7 @@ class CustomButton extends StatelessWidget {
       child: DefaultTextStyle(
         style: Theme.of(context)
             .textTheme
-            .button!
+            .labelLarge!
             .copyWith(color: isDark ? Colors.white : Colors.black)
             .merge(textStyle),
         child: isApiInProgress
