@@ -55,7 +55,7 @@ class ValidationUtils {
 
   static FormFieldValidator<String> getPasswordValidation(
       [BuildContext? context, String? locale, int? length]) {
-    length = length ?? 6;
+    length ??= 6;
     return Validators.compose([
       Validators.required(context == null
           ? ''
@@ -71,7 +71,7 @@ class ValidationUtils {
 
   static FormFieldValidator<String> getConfirmPasswordValidation(password,
       [BuildContext? context, String? locale, int? length]) {
-    length = length ?? 6;
+    length ??= 6;
     return Validators.compose([
       matchpassword(password, locale),
       Validators.required(context == null
@@ -88,13 +88,12 @@ class ValidationUtils {
 
   static matchpassword(password, locale) {
     return (String? value) {
-      if (value == null) {
-        value = '';
-      }
-      if (value != password)
+      final nonNullValue = value ?? '';
+      if (nonNullValue != password) {
         return _getTranslatedText('password_notmatch_message', locale);
-      else
+      } else {
         return null;
+      }
     };
   }
 
